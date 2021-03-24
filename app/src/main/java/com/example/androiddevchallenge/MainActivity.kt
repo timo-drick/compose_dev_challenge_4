@@ -86,7 +86,7 @@ fun ForecastView() {
     val test = 10
     val weatherForecast = listOf(
         Weather("Monday", CloudCover.CLOUDY_2, 10, false),
-        Weather("Tuesday", CloudCover.CLOUDY_3, 50, true),
+        Weather("Tuesday", CloudCover.CLOUDY_3, 30, true),
         Weather("Wednesday", CloudCover.CLEAR, 10, false),
         Weather("Thursday", CloudCover.CLOUDY_1, 60, false),
         Weather("Friday", CloudCover.OVERCAST, 100, true),

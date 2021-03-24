@@ -19,7 +19,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
-import com.example.androiddevchallenge.vec.Vec2
 import kotlin.math.floor
 import kotlin.math.pow
 import kotlin.math.sin
@@ -84,7 +83,7 @@ fun DrawScope.Cloud() {
 }
 
 fun DrawScope.RainCloud(seconds: Double, wind: Float) {
-    repeat(100) { index ->
+    repeat(200) { index ->
         val n1 = noise1(index.toFloat())
         val n2 = (noise1(index.toFloat() * 1434) * 0.9f) + 0.1f
         val time = seconds + n1 * 243
