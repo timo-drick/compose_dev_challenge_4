@@ -50,7 +50,7 @@ fun DrawScope.SunnyWeather(seconds: Double, clouds: Int, wind: Float) {
 private val rainCloudGradient = listOf(Color.Gray, Color.Gray, Color.Gray.copy(alpha = 0.3f))
 private val cloudGradient = listOf(Color.White, Color.White, Color.White.copy(alpha = 0.3f))
 
-fun normalizeTime1(time: Double) = (time * 1000.0 % 1000.0) / 1000.0
+fun normalizeTime1(time: Double) = ((time * 1000.0 % 1000.0) / 1000.0).toFloat()
 fun normalizeTimeX(time: Double) = (((time * 1000.0 % 1000.0) / 1000.0) * 4.0 - 2.0).toFloat()
 
 fun Vec2.toOffset(): Offset = Offset(x.toFloat(), y.toFloat())
@@ -117,25 +117,3 @@ fun noise1(a: Float): Float = fract(sin(a * 100f) * 5647f)
 fun noise21(a: Float, b: Float): Float = fract(sin(a * 100f + b * 6574f) * 5647f)
 
 fun fract(a: Double): Double = a - floor(a)
-fun noise1(a: Double): Double = fract(sin(a * 100f) * 5647f)
-
-fun smoothNoise(time: Float): Float {
-    val fract = fract(time)
-    val id = floor(time)
-    val lv = smoothstep1(fract)
-    val n1 = noise1(id)
-    val n2 = noise1(id + 1)
-    return mix(n1, n2, lv)
-}
-fun smoothNoise21(time: Float, value: Float): Float {
-    val fract = fract(time)
-    val id = floor(time)
-    val lv = smoothstep1(fract)
-    val n1 = noise21(id, value)
-    val n2 = noise21(id + 1, value)
-    return mix(n1, n2, lv)
-}
-
-fun randomOffset(time: Float): Offset {
-    return Offset.Zero
-}
